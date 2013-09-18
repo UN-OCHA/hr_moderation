@@ -10,6 +10,19 @@
 function hr_moderation_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'access workbench'.
+  $permissions['access workbench'] = array(
+    'name' => 'access workbench',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'contributor' => 'contributor',
+      'editor' => 'editor',
+      'manager' => 'manager',
+      'moderator' => 'moderator',
+    ),
+    'module' => 'workbench',
+  );
+
   // Exported permission: 'administer workbench moderation'.
   $permissions['administer workbench moderation'] = array(
     'name' => 'administer workbench moderation',
