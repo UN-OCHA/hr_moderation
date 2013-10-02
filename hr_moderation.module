@@ -5,14 +5,13 @@
  */
 
 /**
- * Implements hook_form_BASE_FORM_ID_alter().
- *
- * Forcing new reversion and publishing.
+ * Implements hook_workbench_moderation_default_state_alter()
  */
-function hr_moderation_form_node_form_alter(&$form, $form_state) {
+function hr_moderation_workbench_moderation_default_state_alter(&$state, $type) {
   global $user;
 
-  if (isset($form['workbench_moderation_state_current'])) {
-    $form['workbench_moderation_state_current']['#value'] = 'draft';
+  if (in_array('editor', $user->roles) || in_array('moderator', $user->roles) || in_array('manager', $user->roles)) {
+    $state = 'published';
   }
 }
+
