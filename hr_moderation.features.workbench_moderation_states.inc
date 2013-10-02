@@ -27,6 +27,12 @@ function hr_moderation_workbench_moderation_export_states() {
       'description' => 'Make this version live',
       'weight' => 99,
     ),
+    'public' => array(
+      'name' => 'public',
+      'label' => 'Public',
+      'description' => 'Make this version public',
+      'weight' => 100,
+     ),
   );
   return $items;
 }
