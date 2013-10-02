@@ -3,3 +3,16 @@
  * @file
  * Drupal needs this blank file.
  */
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ *
+ * Forcing new reversion and publishing.
+ */
+function hr_moderation_form_node_form_alter(&$form, $form_state) {
+  global $user;
+
+  if (isset($form['workbench_moderation_state_current'])) {
+    $form['workbench_moderation_state_current']['#value'] = 'draft';
+  }
+}
